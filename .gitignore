@@ -9,7 +9,7 @@ package-lock.json
 
 .DS_Store
 
-public/dist
+/public/dist
 
 # Runtime data
 pids
