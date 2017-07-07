@@ -9,6 +9,8 @@ package-lock.json
 
 .DS_Store
 
+public/disct
+
 # Runtime data
 pids
 *.pid
