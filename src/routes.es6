@@ -12,7 +12,7 @@ let config = (($stateProvider, $urlRouterProvider) => {
 		url: '/bashboard',
 		controller: 'DashboardCtrl as ctrl',
 		templateUrl: './controllers/dashboard/view.html',
-		redirectTo: 'dashboard.my-appliances'
+		redirectTo: 'dashboard.myAppliances'
 	})
 	.state('dashboard.myAppliances', {
 		url: '/',
