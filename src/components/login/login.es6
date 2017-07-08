@@ -21,7 +21,8 @@ class Login {
       $state.go('dashboard');
     });
   }
-  login() {
+  login($event) {
+    $event.preventDefault();
     ctrl.error = "";
     if(_s.isBlank(ctrl.username) || _s.isBlank(ctrl.password)) {
       ctrl.error = "Please enter valid username and password.";
