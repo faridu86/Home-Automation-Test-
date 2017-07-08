@@ -1,2 +1,2 @@
-# MEAN-ToDo-App
+# Home Automation Portal
 Node.js, Express, Webpack, Babel/ES6, AngularJS...
