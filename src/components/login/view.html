@@ -1,0 +1,9 @@
+<div class="loginmodal-container">
+  <h1>Login to Your Account</h1><br>
+  <div>
+    <input placeholder="Username" ng-model="ctrl.username" type="text">
+    <input placeholder="Password" ng-model="ctrl.password" type="password">
+    <button class="loginmodal-submit" ng-click="ctrl.login()" >Login</button>
+    <div class="login-error">{{ctrl.error}}</div>
+  </div>
+</div>

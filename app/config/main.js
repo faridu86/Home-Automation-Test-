@@ -17,7 +17,8 @@ var config = {
       port: 3306,
       dialect: "mysql",
       logging: false,
-    }
+    },
+    domainForCookie: '/'
   },
 
   test: {
@@ -34,7 +35,8 @@ var config = {
       port: 3306,
       dialect: "mysql",
       logging: false,
-    }
+    },
+    domainForCookie: '/'
   },
 
   production: {
@@ -51,7 +53,8 @@ var config = {
       port: 3306,
       dialect: "mysql",
       logging: false,
-    }
+    },
+    domainForCookie: '/'
   }
 };
 
