@@ -1,0 +1,30 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container"> 
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span> 
+    </button>
+    <a target="_blank" href="" class="navbar-brand">My Home Automation</a>
+  </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="dashboard.myAppliances" ui-sref-active="active">Home</a></li>
+        <li><a ui-sref="dashboard.allAppliances" ui-sref-active="active">All Appliances</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span> 
+            <strong>{{ctrl.user.v_full_name}}</strong>
+            <span class="pointer" ng-click="ctrl.logout()">
+              <span>Sign Out</span>
+              <span class="glyphicon glyphicon glyphicon-log-out"></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

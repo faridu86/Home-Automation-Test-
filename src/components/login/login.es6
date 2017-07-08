@@ -1,10 +1,10 @@
 'use strict';
-import _ from 'lodash';
+
 import _s from 'underscore.string';
-let ctrl, LoginService, $state;
+let ctrl, $state, LoginService;
 
 class Login {
-  constructor(_LoginService_, _$state_) {
+  constructor(_$state_, _LoginService_) {
     ctrl = this;
     LoginService = _LoginService_;
     $state = _$state_;
@@ -16,7 +16,10 @@ class Login {
     ctrl.isLoggedIn();
   }
   isLoggedIn() {
-    LoginService.isLoggedIn();
+    LoginService.isLoggedIn()
+    .then((user) => {
+      $state.go('dashboard');
+    });
   }
   login() {
     ctrl.error = "";
@@ -38,7 +41,7 @@ class Login {
 }
 
 const login = {
-  restrict: 'E',    
+  restrict: 'E',
   bindings: {},
   controller: Login,
   controllerAs: 'ctrl',

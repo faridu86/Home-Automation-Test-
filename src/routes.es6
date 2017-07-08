@@ -1,15 +1,26 @@
+'use strict';
 
 let config = (($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/');
 
 	$stateProvider
 	.state('login', {
-			url: '/',
-			component: 'loginComponent'
+		url: '/',
+		component: 'loginComponent'
 	})
 	.state('dashboard', {
-			url: '/bashboard',
-			template: require('routes/dashboard/view.html')
+		url: '/bashboard',
+		controller: 'DashboardCtrl as ctrl',
+		templateUrl: './controllers/dashboard/view.html',
+		redirectTo: 'dashboard.my-appliances'
+	})
+	.state('dashboard.myAppliances', {
+		url: '/',
+		component: 'myAppliances'
+	})
+	.state('dashboard.allAppliances', {
+		url: '/appliances',
+		component: 'allAppliances'
 	});
 });
 

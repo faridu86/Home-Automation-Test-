@@ -6,7 +6,8 @@ if (!global.hasOwnProperty('db')) {
     "host": config.host,
     "port": config.port,
     "dialect": "mysql",
-    "dialectOptions": { multipleStatements: true }
+    "dialectOptions": { multipleStatements: true },
+    "logging": (config.logging == undefined ? function(x) { defaultLogger.trace(x); } : config.logging),
   };
 
   sequelize = new Sequelize(config.database, config.username, config.password, defaultOptions);

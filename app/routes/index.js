@@ -6,4 +6,5 @@ module.exports = function (app) {
 
   app.post('/login', controllers.users.login);
   app.put('/logout', authenticate, controllers.users.logout);
+  app.get('/authenticate', authenticate, controllers.users.loggedInUser)
 }

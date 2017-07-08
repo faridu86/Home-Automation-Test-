@@ -7,9 +7,7 @@ let getApiKey = (req) => {
 }
 module.exports = async (req, res, next) => {
   let apiKey = getApiKey(req);
-  console.log(apiKey);
   if (!apiKey) {
-    console.log('!!!!!!!!!!!!!!');
     res.status(401).end(); return;
   }
   let user = await global.db.User.find({
@@ -21,7 +19,6 @@ module.exports = async (req, res, next) => {
     req.user = user;
     next();
   } else {
-    console.log('@@@@@@@@@@@@@@@@@@@');
     res.status(401).end(); return;
   }
 }

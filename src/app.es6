@@ -15,6 +15,10 @@ class HaaApp {
     .module('haa', ['ui.router', 'ui.bootstrap', 'ngCookies'])
     .config(RoutesConfig)
     .component('loginComponent', components.Login)
+    .component('mainMenu', components.Menu)
+    .component('allAppliances', components.AllAppliances)
+    .component('myAppliances', components.MyAppliances)
+    .controller('DashboardCtrl', controllers.Dashboard)
     .service('LoginService', services.Login)
     .run(($templateCache) => {
       requireTemplates($templateCache);

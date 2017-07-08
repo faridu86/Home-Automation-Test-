@@ -15,8 +15,13 @@ module.exports.logout = async (req, res) => {
   try {
     let user = await authentication.logout(req.user.v_api_key);
     delete req.session.apiKey;
-    res.send('ok');
+    res.cookie('x-haa-api-key', null);
+    res.send('logged out');
   } catch(err) {
     res.status(401).json({error: err});
   }
+}
+
+module.exports.loggedInUser = (req, res) => {
+  res.json(req.user);
 }

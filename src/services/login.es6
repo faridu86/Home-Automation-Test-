@@ -1,12 +1,20 @@
-let $http, $q, $cookies;
+let $http, $q;
 class Login{
-  constructor(_$http_, _$q_, _$cookies_) {
+  constructor(_$http_, _$q_) {
     $http = _$http_;
     $q = _$q_;
-    $cookies = _$cookies_;
   }
   isLoggedIn() {
-
+    let $url = "/authenticate"
+    return $http.get($url)
+    .then((response) => {
+      this.user = response.data;
+      return this.user;
+    })
+    .catch((error) => {
+      console.error('error while authenticating', error);
+      throw ('user is not logged in.');
+    })
   }
   login(username, password) {
     let $url = "/login";
@@ -21,13 +29,9 @@ class Login{
     })
   }
   logout() {
-    let apiKey = $cookies.get('x-haa-api-key');
-    console.log(apiKey);
     let $url = "/logout";
-    return $http.put($url, {apiKey: apiKey})
+    return $http.put($url)
     .then((response) => {
-      console.log('lskdfjsldfj')
-      $cookies.remove('x-haa-api-key');
       this.user = null;
       return this.user;
     })
