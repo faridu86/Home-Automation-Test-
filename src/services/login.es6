@@ -12,7 +12,7 @@ class Login{
       return this.user;
     })
     .catch((error) => {
-      console.error('error while authenticating', error);
+      console.log('error while authenticating', error);
       throw ('user is not logged in.');
     })
   }
@@ -24,7 +24,7 @@ class Login{
       return this.user;
     })
     .catch((error) => {
-      console.error('error while signing in', error);
+      console.log('error while signing in', error);
       throw ('Invalid username or password.');
     })
   }
@@ -36,7 +36,7 @@ class Login{
       return this.user;
     })
     .catch((error) => {
-      console.error('error while signing in', error);
+      console.log('error while signing in', error);
       throw ('can not logout.');
     })
   }

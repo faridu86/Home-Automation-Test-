@@ -19,6 +19,8 @@ class Login {
     LoginService.isLoggedIn()
     .then((user) => {
       $state.go('dashboard');
+    }).catch((error) => {
+      console.log(error);
     });
   }
   login($event) {
