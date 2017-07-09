@@ -20,6 +20,7 @@ class HaaApp {
     .component('myAppliances', components.MyAppliances)
     .controller('DashboardCtrl', controllers.Dashboard)
     .service('LoginService', services.Login)
+    .service('ApplianceService', services.Appliances)
     .run(($templateCache) => {
       requireTemplates($templateCache);
     });

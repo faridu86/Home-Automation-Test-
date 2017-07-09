@@ -23,7 +23,7 @@ let appliances = async (userId) => {
 
   return {
     options: options(),
-    appliances: await all(),
+    all: await all(),
     userAppliances: await userAppliances(userId)
   }
 };

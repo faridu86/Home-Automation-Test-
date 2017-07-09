@@ -1,8 +1,24 @@
 'use strict';
-
+let ctrl, ApplianceService;
 class AllAppliances {
-  constructor() {
-    console.log('All')
+  constructor(_ApplianceService_) {
+    ctrl = this;
+    ApplianceService = _ApplianceService_;
+  }
+  $onInit() {
+    ApplianceService.appliances()
+    .then((appliances) => {
+      ctrl.appliances = appliances;
+    });
+  }
+  get options() {
+    return ctrl.appliances && ctrl.appliances.options;
+  }
+  get allAppliances() {
+    return ctrl.appliances && ctrl.appliances.all;
+  }
+  get userAppliances() {
+    return ctrl.appliances && ctrl.appliances.userAppliances;
   }
 }
 

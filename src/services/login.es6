@@ -5,8 +5,8 @@ class Login {
     $q = _$q_;
   }
   isLoggedIn() {
-    let $url = "/authenticate"
-    return $http.get($url)
+    let url = "/authenticate"
+    return $http.get(url)
     .then((response) => {
       this.user = response.data;
       return this.user;
@@ -17,8 +17,8 @@ class Login {
     })
   }
   login(username, password) {
-    let $url = "/login";
-    return $http.post($url, {username: username, password: password})
+    let url = "/login";
+    return $http.post(url, {username: username, password: password})
     .then((response) => {
       this.user = response.data;
       return this.user;
@@ -29,8 +29,8 @@ class Login {
     })
   }
   logout() {
-    let $url = "/logout";
-    return $http.put($url)
+    let url = "/logout";
+    return $http.put(url)
     .then((response) => {
       this.user = null;
       return this.user;

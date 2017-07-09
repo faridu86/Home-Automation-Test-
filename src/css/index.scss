@@ -89,3 +89,47 @@
 }
 
 .pointer { cursor: pointer; }
+
+.all-appliances {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  max-height: 400px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.appliance-container {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  width: 268px;
+  
+  .appliance-name, .appliance-location {
+    font-size: 12px;
+    color: #666;
+  }
+}
+
+.img-appliance-container {
+    background: #c7c7c7;
+    border-radius: 3px;
+    float: left;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative;
+    width: 120px;
+  }
+  .img-appliance {
+    border-radius: 0;
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+  }

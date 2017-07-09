@@ -1,1 +1,14 @@
 <h2>All Appliances</h2>
+
+<div class="all-appliances">
+  <div class="appliance-container" ng-repeat="appliance in ctrl.allAppliances">
+    <div class="img-appliance-container">
+      <img class="img-appliance" ng-src="/public/images/{{appliance.v_name}}.png" />
+    </div>
+    <strong>Appliance</strong>
+    <div class="appliance-name">{{appliance.v_name}}</div>
+    <strong>Location</strong>
+    <div class="appliance-location">{{appliance.v_location}}</div>
+    <button class="btn btn-primary btn-sm btn-block">Add to my Appliances</button>
+  </div>
+</div>
