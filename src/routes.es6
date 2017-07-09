@@ -9,18 +9,10 @@ let config = (($stateProvider, $urlRouterProvider) => {
 		component: 'loginComponent'
 	})
 	.state('dashboard', {
-		url: '/bashboard',
+		url: '/dashboard',
 		controller: 'DashboardCtrl as ctrl',
 		templateUrl: './controllers/dashboard/view.html',
-		redirectTo: 'dashboard.myAppliances'
-	})
-	.state('dashboard.myAppliances', {
-		url: '/',
-		component: 'myAppliances'
-	})
-	.state('dashboard.allAppliances', {
-		url: '/appliances',
-		component: 'allAppliances',
+		redirectTo: 'dashboard.myAppliances',
 		resolve: {
 			appliances: (ApplianceService) => {
 				return ApplianceService.appliances()
@@ -29,6 +21,14 @@ let config = (($stateProvider, $urlRouterProvider) => {
 				});
 			}
 		}
+	})
+	.state('dashboard.myAppliances', {
+		url: '/',
+		component: 'myAppliances'
+	})
+	.state('dashboard.allAppliances', {
+		url: '/appliances',
+		component: 'allAppliances'
 	});
 });
 

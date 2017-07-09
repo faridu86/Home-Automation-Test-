@@ -12,3 +12,10 @@ module.exports.saveConfiguration = async (req, res) => {
   data = await appliances.getAppliances(req.params.user_id);
   res.json(data);
 }
+
+module.exports.saveApplianceControlStatus = async (req, res) => {
+  await appliances.saveApplianceControlStatus(req.params.appliance_id, req.body.status);
+  let data = {};
+  data = await appliances.getAppliances(req.params.user_id);
+  res.json(data);
+}

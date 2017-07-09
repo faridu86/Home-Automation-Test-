@@ -8,4 +8,5 @@ module.exports = function (app) {
   app.get('/authenticate', authenticate, controllers.users.loggedInUser);
   app.get('/appliances/:user_id', controllers.appliances.appliances);
   app.post('/appliances/:user_id', controllers.appliances.saveConfiguration);
+  app.put('/appliances/:appliance_id', controllers.appliances.saveApplianceControlStatus);
 }

@@ -1,11 +1,14 @@
 'use strict';
+
 import _ from 'lodash';
-let ctrl, ApplianceService;
+let ctrl, ApplianceService, $state;
+
 class AllAppliances {
-  constructor(_ApplianceService_) {
+  constructor(_ApplianceService_, _$state_) {
     ctrl = this;
     ctrl.selected = null;
     ApplianceService = _ApplianceService_;
+    $state = _$state_;
   }
   $onInit() {
     ctrl.userAppliancesIds = ctrl.userAppliances && _.map(ctrl.userAppliances, 'fk_appliance_id');
@@ -42,6 +45,7 @@ class AllAppliances {
     ApplianceService.saveConfiguration(ctrl.userAppliancesIds)
     .then((appliances)=> {
       ctrl.appliances = appliances;
+      $state.go('dashboard')
     })
     .catch((err) => {
       console.log(err);

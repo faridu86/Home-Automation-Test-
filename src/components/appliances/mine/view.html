@@ -1,1 +1,35 @@
 <h2>My Appliances</h2>
+
+<div class="my-appliances">
+  <div class="appliance-container appliance" ng-repeat="id in ctrl.userAppliancesIds">
+    <div class="img-appliance-container">
+      <img class="img-appliance" ng-src="/public/images/{{ctrl.getAppliance(id).v_name}}.png" />
+    </div>
+    <strong>Appliance</strong>
+    <div class="appliance-name">{{ctrl.getAppliance(id).v_name}}</div>
+    <strong>Location</strong>
+    <div class="appliance-location">{{ctrl.getAppliance(id).v_location}}</div>
+    <br />
+    <table width="100%" cellpadding="2">
+      <tr ng-repeat="(optionKey, option) in ctrl.options[ctrl.getAppliance(id).v_name]">
+        <td><strong>{{optionKey}}</strong></td>
+        <td>
+          <div class="pull-right">
+            <button ng-click="ctrl.toggleSwitch(ctrl.getAppliance(id))" class="btn btn-success" ng-if="ctrl.isSwitch(optionKey) && ctrl.isSwitchOn(ctrl.getAppliance(id))">{{option.ON}}</button>
+            <button ng-click="ctrl.toggleSwitch(ctrl.getAppliance(id))" class="btn btn-danger" ng-if="ctrl.isSwitch(optionKey) && !ctrl.isSwitchOn(ctrl.getAppliance(id))">{{option.OFF}}</button>
+
+            <div class="btn-group" ng-if="option.Max">
+              <button ng-click="ctrl.decreaseOptionValue(ctrl.getAppliance(id), optionKey)" ng-disabled="!ctrl.isSwitchOn(ctrl.getAppliance(id)) || ctrl.hasReachedMinValue(ctrl.getAppliance(id), optionKey)" type="button" class="btn btn-info">-</button>
+              <button ng-disabled="true" type="button" class="btn btn-info">{{ctrl.getAppliance(id).t_status[optionKey]}}</button>
+              <button ng-click="ctrl.increaseOptionValue(ctrl.getAppliance(id), optionKey)" ng-disabled="!ctrl.isSwitchOn(ctrl.getAppliance(id)) || ctrl.hasReachedMaxValue(ctrl.getAppliance(id), optionKey)" type="button" class="btn btn-info">+</button>
+            </div>
+            
+            <button ng-disabled="!ctrl.isSwitchOn(ctrl.getAppliance(id))" ng-click="ctrl.toggleSwing(ctrl.getAppliance(id))" class="btn btn-success" ng-if="ctrl.isSwing(optionKey) && ctrl.isSwingOn(ctrl.getAppliance(id))">{{option.ON}}</button>
+            <button ng-disabled="!ctrl.isSwitchOn(ctrl.getAppliance(id))" ng-click="ctrl.toggleSwing(ctrl.getAppliance(id))" class="btn btn-danger" ng-if="ctrl.isSwing(optionKey) && !ctrl.isSwingOn(ctrl.getAppliance(id))">{{option.OFF}}</button>
+
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     v_name: {type: DataTypes.STRING, allowNull: false},
     v_location: {type: DataTypes.STRING, allowNull: false},
+    t_status: {type: DataTypes.TEXT, allowNull: false},
     fk_created_by: DataTypes.INTEGER,
     fk_updated_by: DataTypes.INTEGER,
     createdAt: DataTypes.INTEGER,

@@ -29,6 +29,19 @@ class Appliances {
       throw ('appliances configuration failed.');
     });
   }
+
+  saveApplianceControl(appliance) {
+    let url = `/appliances/${appliance.id}`;
+    return $http.put(url, {status: JSON.stringify(appliance.t_status)})
+    .then((response) => {
+      this.appliances = response.data;
+      return this.appliances;
+    })
+    .catch((error) => { 
+      console.log('error while saving appliances configurations', error);
+      throw ('appliance control change failed.');
+    });
+  }
   
 }
 

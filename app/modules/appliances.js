@@ -43,20 +43,24 @@ let saveConfiguration = async (userId, appliancesIds) => {
       fk_created_by: userId,
       fk_updated_by: userId
     };
-    console.log(`\n\n${config}\n\n`)
     newConfiguration.push(config);
   });
-  console.log(`\n\n${newConfiguration}\n\n`)
   await Models.UserAppliance.bulkCreate(newConfiguration);
 }
 
-let saveControl = () => {
-
+let saveApplianceControlStatus = async (applianceId, status) => {
+  let appliance = await Models.Appliance.find({
+    where: {
+      id: applianceId
+    }
+  });
+  appliance.t_status = status;
+  return appliance.save();
 }
 
 module.exports = {
   getAppliances: getAppliances,
   saveConfiguration: saveConfiguration,
-  saveControl: saveControl
+  saveApplianceControlStatus: saveApplianceControlStatus
 
 }
