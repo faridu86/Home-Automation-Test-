@@ -20,7 +20,15 @@ let config = (($stateProvider, $urlRouterProvider) => {
 	})
 	.state('dashboard.allAppliances', {
 		url: '/appliances',
-		component: 'allAppliances'
+		component: 'allAppliances',
+		resolve: {
+			appliances: (ApplianceService) => {
+				return ApplianceService.appliances()
+				.then((appliances) => {
+					return appliances;
+				});
+			}
+		}
 	});
 });
 

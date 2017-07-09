@@ -7,4 +7,5 @@ module.exports = function (app) {
   app.put('/logout', authenticate, controllers.users.logout);
   app.get('/authenticate', authenticate, controllers.users.loggedInUser);
   app.get('/appliances/:user_id', controllers.appliances.appliances);
+  app.post('/appliances/:user_id', controllers.appliances.saveConfiguration);
 }

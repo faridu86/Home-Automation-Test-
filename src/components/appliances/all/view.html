@@ -1,14 +1,62 @@
 <h2>All Appliances</h2>
 
+<!--<br /><br />
+{{ctrl.lists}}
+<br /><br />
+
+
+<div ng-repeat="(listName, list) in ctrl.lists" class="col-md-6">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">List {{listName}}</h3>
+    </div>
+    <ul dnd-list="list">
+      <li ng-repeat="item in list"
+        dnd-draggable="item"
+        dnd-moved="list.splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="ctrl.selected = item"
+        ng-class="{'selected': ctrl.selected === item}"
+        >
+        {{item}}
+      </li>
+    </ul>
+  </div>
+</div>
+-->
+
+
+
+
+
+
+<br /><br />
+
+<div  class="form-group" ng-if="ctrl.isNewConfiguration()">
+  <button class="btn btn-success" ng-click="ctrl.saveConfiguration()">Save New Configuration</button>
+</div>
 <div class="all-appliances">
-  <div class="appliance-container" ng-repeat="appliance in ctrl.allAppliances">
+  <div class="appliance-container" ng-repeat="id in ctrl.candidateAppliancesIds">
     <div class="img-appliance-container">
-      <img class="img-appliance" ng-src="/public/images/{{appliance.v_name}}.png" />
+      <img class="img-appliance" ng-src="/public/images/{{ctrl.getAppliance(id).v_name}}.png" />
     </div>
     <strong>Appliance</strong>
-    <div class="appliance-name">{{appliance.v_name}}</div>
+    <div class="appliance-name">{{ctrl.getAppliance(id).v_name}}</div>
     <strong>Location</strong>
-    <div class="appliance-location">{{appliance.v_location}}</div>
-    <button class="btn btn-primary btn-sm btn-block">Add to my Appliances</button>
+    <div class="appliance-location">{{ctrl.getAppliance(id).v_location}}</div>
+    <button class="btn btn-primary btn-sm btn-block" ng-click="ctrl.addToUserAppliances(id)">Add to my Appliances</button>
+  </div>
+</div>
+<h2>My Appliances</h2>
+<div class="user-appliances">
+  <div class="appliance-container" ng-repeat="id in ctrl.userAppliancesIds">
+    <div class="img-appliance-container">
+      <img class="img-appliance" ng-src="/public/images/{{ctrl.getAppliance(id).v_name}}.png" />
+    </div>
+    <strong>Appliance</strong>
+    <div class="appliance-name">{{ctrl.getAppliance(id).v_name}}</div>
+    <strong>Location</strong>
+    <div class="appliance-location">{{ctrl.getAppliance(id).v_location}}</div>
+    <button class="btn btn-danger btn-sm btn-block" ng-click="ctrl.removeFromUserAppliances($index)">Remove from my Appliances</button>
   </div>
 </div>
