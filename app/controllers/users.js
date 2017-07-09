@@ -1,5 +1,4 @@
-var Promise = require('bluebird');
-var authentication = require(`${global.config.root}/modules/authentication`);
+var authentication = require(`${global.config.root}/app/modules/authentication`);
 module.exports.login = async (req, res) => {
   try {
     let user = await authentication.login(req.body.username, req.body.password);

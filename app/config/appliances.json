@@ -1,0 +1,82 @@
+{
+  "AC": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    },
+    "Temprature": {
+      "Min": 16,
+      "Max": 32
+    },
+    "Fan": {
+      "Min": 1,
+      "Max": 3
+    },
+    "Swing": {
+      "ON": "ON",
+      "OFF": "OFF"
+    }
+  },
+  "Bulb": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    }
+  },
+  "Tube Light": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    },
+    "Brightness": {
+      "Min": 1,
+      "Max": 10
+    }
+  },
+  "Fan": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    },
+    "Speed": {
+      "Min": 1,
+      "Max": 10
+    }
+  },
+  "Fridge": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    },
+    "Cooling": {
+      "Min": 1,
+      "Max": 7
+    }
+  },
+  "TV": {
+    "Switch": {
+      "ON": "ON",
+      "OFF": "OFF"
+    },
+    "Channels": {
+      "Min": 1,
+      "Max": 100
+    },
+    "Volume": {
+      "Min": 0,
+      "Max": 100
+    },
+    "Brightness": {
+      "Min": 1,
+      "Max": 100
+    },
+    "Color": {
+      "Min": 1,
+      "Max": 100
+    },
+    "Contrast": {
+      "Min": 1,
+      "Max": 100
+    }
+  }
+}

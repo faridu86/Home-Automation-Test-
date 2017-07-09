@@ -1,5 +1,5 @@
 let $http, $q;
-class Login{
+class Login {
   constructor(_$http_, _$q_) {
     $http = _$http_;
     $q = _$q_;
@@ -11,7 +11,7 @@ class Login{
       this.user = response.data;
       return this.user;
     })
-    .catch((error) => {
+    .catch((error) => { 
       console.log('error while authenticating', error);
       throw ('user is not logged in.');
     })

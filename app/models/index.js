@@ -7,6 +7,8 @@ var models;
 
 global.db = models = {
   User: sequelize.import(__dirname + '/User'),
+  Appliance: sequelize.import(__dirname + '/Appliance'),
+  UserAppliance: sequelize.import(__dirname + '/UserAppliance')
 };
 
 global.db.Sequelize = Sequelize;

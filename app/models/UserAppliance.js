@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var tableName = "users";
+  var tableName = "user_appliances";
 
   var attributes = {
     id: {
@@ -8,15 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    v_username: {type: DataTypes.STRING, allowNull: false},
-    v_password: {type: DataTypes.STRING, allowNull: false},
-    v_full_name: {type: DataTypes.STRING, allowNull: false},
-    v_api_key: {type: DataTypes.STRING, allowNull: true},
+    fk_user_id: DataTypes.INTEGER,
+    fk_appliance_id: DataTypes.INTEGER,
     fk_created_by: DataTypes.INTEGER,
     fk_updated_by: DataTypes.INTEGER,
     createdAt: DataTypes.INTEGER,
-    updatedAt: DataTypes.INTEGER,
-    i_is_active: DataTypes.BOOLEAN
+    updatedAt: DataTypes.INTEGER
   };
 
   var instanceMethods = {};

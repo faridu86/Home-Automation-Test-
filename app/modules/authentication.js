@@ -1,5 +1,3 @@
-var Promise = require('bluebird');
-var moment = require("moment");
 var Puid = require('puid');
 let authentication = () => {
   let login = async (username, password) => {
@@ -35,13 +33,9 @@ let authentication = () => {
     }
   };
 
-  let isLoggedIn = async (apiKey) => {
-
-  }
   return {
     login: login,
-    logout: logout,
-    isLoggedIn: isLoggedIn
+    logout: logout
   }
 };
 
