@@ -111,7 +111,8 @@ class MyAppliances {
   saveApplianceControl(appliance) {
     console.log('saveApplianceControl');
     return AppliancesFactory.saveApplianceControl(appliance)
-    .then(() => {
+    .then((appliance) => {
+      ctrl.appliance = appliance;
       console.log('appliance option changed!')
     })
     .catch((err) => {

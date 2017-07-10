@@ -9,24 +9,22 @@ let config = (($stateProvider, $urlRouterProvider) => {
 		component: 'loginComponent'
 	})
 	.state('dashboard', {
-		resolve: {
-			appliances: (AppliancesFactory) => {
-				return AppliancesFactory.appliances()
-				.then((appliances) => {
-					return appliances;
-				});
-			}
-		},
 		url: '/dashboard',
 		controller: 'DashboardCtrl as ctrl',
 		templateUrl: './controllers/dashboard/view.html',
 		redirectTo: 'dashboard.myAppliances'
 	})
 	.state('dashboard.myAppliances', {
+		resolve: {
+			appliances: (AppliancesFactory) => AppliancesFactory.appliances()
+		},
 		url: '/',
 		component: 'myAppliances'
 	})
 	.state('dashboard.allAppliances', {
+		resolve: {
+			appliances: (AppliancesFactory) => AppliancesFactory.appliances()
+		},
 		url: '/appliances',
 		component: 'allAppliances'
 	});
