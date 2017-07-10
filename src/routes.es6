@@ -9,18 +9,18 @@ let config = (($stateProvider, $urlRouterProvider) => {
 		component: 'loginComponent'
 	})
 	.state('dashboard', {
-		url: '/dashboard',
-		controller: 'DashboardCtrl as ctrl',
-		templateUrl: './controllers/dashboard/view.html',
-		redirectTo: 'dashboard.myAppliances',
 		resolve: {
-			appliances: (ApplianceService) => {
-				return ApplianceService.appliances()
+			appliances: (AppliancesFactory) => {
+				return AppliancesFactory.appliances()
 				.then((appliances) => {
 					return appliances;
 				});
 			}
-		}
+		},
+		url: '/dashboard',
+		controller: 'DashboardCtrl as ctrl',
+		templateUrl: './controllers/dashboard/view.html',
+		redirectTo: 'dashboard.myAppliances'
 	})
 	.state('dashboard.myAppliances', {
 		url: '/',

@@ -1,7 +1,7 @@
 'use strict';
 
 import RoutesConfig from './routes.es6';
-import { controllers, components, services, filters, requireTemplates} from './imports.es6';
+import { controllers, components, factories, services, filters, requireTemplates} from './imports.es6';
 
 class HaaApp {
   constructor() {
@@ -13,6 +13,7 @@ class HaaApp {
     .component('allAppliances', components.AllAppliances)
     .component('myAppliances', components.MyAppliances)
     .controller('DashboardCtrl', controllers.Dashboard)
+    .factory('AppliancesFactory', factories.Appliances)
     .service('LoginService', services.Login)
     .service('ApplianceService', services.Appliances)
     .run(($templateCache) => {

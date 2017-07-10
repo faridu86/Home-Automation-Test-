@@ -8,11 +8,11 @@ import 'angular-cookies';
 
 import './css/index.scss';
 
-import { requireTemplates } from './template.cache.es6';
-
 import components from './components/imports.es6';
 import controllers from './controllers/imports.es6';
-let filters = {};
+import factories from './factories/imports.es6';
 import services from './services/imports.es6';
+let filters = {};
+import { requireTemplates } from './template.cache.es6';
 
-export { controllers, components, services, filters, requireTemplates};
+export { controllers, components, factories, services, filters, requireTemplates};

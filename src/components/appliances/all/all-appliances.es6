@@ -1,13 +1,13 @@
 'use strict';
 
 import _ from 'lodash';
-let ctrl, ApplianceService, $state;
+let ctrl, AppliancesFactory, $state;
 
 class AllAppliances {
-  constructor(_ApplianceService_, _$state_) {
+  constructor(_AppliancesFactory_, _$state_) {
     ctrl = this;
     ctrl.selected = null;
-    ApplianceService = _ApplianceService_;
+    AppliancesFactory = _AppliancesFactory_;
     $state = _$state_;
   }
   $onInit() {
@@ -42,7 +42,7 @@ class AllAppliances {
     return !_.isEqual(ctrl.userAppliancesIds, _.map(ctrl.userAppliances, 'fk_appliance_id'))
   }
   saveConfiguration() {
-    ApplianceService.saveConfiguration(ctrl.userAppliancesIds)
+    AppliancesFactory.saveConfiguration(ctrl.userAppliancesIds)
     .then((appliances)=> {
       ctrl.appliances = appliances;
       $state.go('dashboard')

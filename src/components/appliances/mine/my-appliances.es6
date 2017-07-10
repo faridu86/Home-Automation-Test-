@@ -1,11 +1,11 @@
 'use strict';
 
-let ctrl, ApplianceService;
+let ctrl, AppliancesFactory;
 
 class MyAppliances {
-  constructor(_ApplianceService_) {
+  constructor(_AppliancesFactory_) {
     ctrl = this;
-    ApplianceService = _ApplianceService_;
+    AppliancesFactory = _AppliancesFactory_;
   }
   $onInit() {
     ctrl.userAppliancesIds = ctrl.userAppliances && _.map(ctrl.userAppliances, 'fk_appliance_id');
@@ -110,7 +110,7 @@ class MyAppliances {
   }
   saveApplianceControl(appliance) {
     console.log('saveApplianceControl');
-    return ApplianceService.saveApplianceControl(appliance)
+    return AppliancesFactory.saveApplianceControl(appliance)
     .then(() => {
       console.log('appliance option changed!')
     })

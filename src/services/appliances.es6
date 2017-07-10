@@ -8,8 +8,7 @@ class Appliances {
     let url = '/appliances/1';
     return $http.get(url)
     .then((response) => {
-      this.appliances = response.data;
-      return this.appliances;
+      return response.data;
     })
     .catch((error) => { 
       console.log('error while getting appliances', error);
@@ -21,8 +20,7 @@ class Appliances {
     let url = '/appliances/1';
     return $http.post(url, {ids: ids})
     .then((response) => {
-      this.appliances = response.data;
-      return this.appliances;
+      return response.data;
     })
     .catch((error) => { 
       console.log('error while saving appliances configurations', error);
@@ -30,12 +28,11 @@ class Appliances {
     });
   }
 
-  saveApplianceControl(appliance) {
-    let url = `/appliances/${appliance.id}`;
-    return $http.put(url, {status: JSON.stringify(appliance.t_status)})
+  saveApplianceControl(applianceId, status) {
+    let url = `/appliances/${applianceId}`;
+    return $http.put(url, {status: status})
     .then((response) => {
-      this.appliances = response.data;
-      return this.appliances;
+      return response.data;
     })
     .catch((error) => { 
       console.log('error while saving appliances configurations', error);
